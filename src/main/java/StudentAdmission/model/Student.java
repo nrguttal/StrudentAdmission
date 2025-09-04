@@ -1,14 +1,15 @@
 package StudentAdmission.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import org.hibernate.validator.constraints.UUID;
+import org.springframework.aot.generate.GenerationContext;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-@Entity
+import jakarta.annotation.Generated;
+
+@EntityScan
 public class Student {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @UUID
+  //  @Generated(strategy = GenerationContext.IDENTITY, value = { "" })
     private Long id;
     private String name;
     private int age;
