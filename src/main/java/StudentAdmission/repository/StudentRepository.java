@@ -10,13 +10,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class StudentRepository  {
 
-	public Student findById(int id) { return null; }
+	public Student findById(Long id) { return null; }
     // Additional custom queries can be defined here if needed
 
 	public Student save(Student student) { return null; }
 
-	public void deleteById(int id) {
+	public void deleteById(Long id) {
 	}
 
 	public List<Student> findAll() { return null; };
+	
+	public List<String> findCoursesByStudentId(Long id) { return null; }	
 }

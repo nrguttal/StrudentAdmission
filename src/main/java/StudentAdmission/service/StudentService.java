@@ -17,7 +17,7 @@ public class StudentService {
     }
 
     public Student getStudentById(Long id) {
-        return studentRepository.findById(id).orElse(null);
+        return ( studentRepository.findById(id));
     }
 
     public Student createStudent(Student student) {
@@ -25,14 +25,8 @@ public class StudentService {
     }
 
     public Student updateStudent(Long id, Student studentDetails) {
-        return studentRepository.findById(id)
-                .map(student -> {
-                    student.setName(studentDetails.getName());
-                    student.setAge(studentDetails.getAge());
-                    student.setCourses(studentDetails.getCourses());
-                    return studentRepository.save(student);
-                })
-                .orElse(null);
+        return studentRepository.findById(id);
+                
     }
 
     public void deleteStudent(Long id) {
@@ -44,8 +38,7 @@ public class StudentService {
     }
 
     public List<String> getCoursesByStudentId(Long id) {
-        return studentRepository.findById(id)
-                .map(Student::getCourses)
-                .orElse(null);
+        return studentRepository.findCoursesByStudentId(id);
+              
     }
 }

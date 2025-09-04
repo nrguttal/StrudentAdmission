@@ -1,16 +1,18 @@
 package StudentAdmission.model;
 
-import jakarta.persistence.ElementCollection;
+import jakarta.persistence.ElementCollection;/*
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.Id;*/
 import java.util.List;
 
-@Entity
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+@EntityScan
 public class Student {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   // @Id
+   // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private int age;
@@ -34,4 +36,9 @@ public class Student {
     public void setAge(int age) { this.age = age; }
     public List<String> getCourses() { return courses; }
     public void setCourses(List<String> courses) { this.courses = courses; }
+
+	public Object map(Object object) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
