@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/students")
@@ -24,13 +25,15 @@ public class StudentController {
 		return "Hello";
 	}
 
+    
     @GetMapping
     public List<Student> getAllStudents() {
-        return studentService.getAllStudents();
+       // return studentService.getAllStudents();
+    	return null;
     }
-
+/*
     @GetMapping("/{id}")
-    public Student getStudentById(@PathVariable Long id) {
+    public Optional getStudentById(@PathVariable Long id) {
         return studentService.getStudentById(id);
                 
     }
@@ -42,9 +45,9 @@ public class StudentController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Student> updateStudent(@PathVariable Long id, @RequestBody Student student) {
+    public ResponseEntity<Optional> updateStudent(@PathVariable Long id, @RequestBody Student student) {
         try {
-            Student updated = studentService.updateStudent(id, student);
+            Optional updated = studentService.updateStudent(id, student);
             return ResponseEntity.ok(updated);
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
@@ -57,6 +60,7 @@ public class StudentController {
         return ResponseEntity.noContent().build();
     }
     
+    */
     @GetMapping("/{id}/courses")
     public ResponseEntity<List<String>> getCoursesByStudentId(@PathVariable Long id) {
         List<String> courses = studentService.getCoursesByStudentId(id);

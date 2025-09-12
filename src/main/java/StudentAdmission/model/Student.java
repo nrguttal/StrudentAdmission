@@ -1,28 +1,21 @@
 package StudentAdmission.model;
 
-import jakarta.persistence.ElementCollection;/*
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;*/
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.List;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-
-@EntityScan
+@Document(collection = "students")
 public class Student {
-   // @Id
-   // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     private Long id;
     private String name;
     private int age;
-    @ElementCollection
     private List<String> courses;
 
     public Student() {}
 
     public Student(Long id, String name, int age, List<String> courses) {
-        this.id = id;
+        this.id =  id;
         this.name = name;
         this.age = age;
         this.courses = courses;
