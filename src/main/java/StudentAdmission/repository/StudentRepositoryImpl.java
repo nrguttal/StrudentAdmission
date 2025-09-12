@@ -30,15 +30,15 @@ public class StudentRepositoryImpl implements StudentRepository//Custom
 
    // @Override
     public List<String> findCoursesByStudentId(Long id) {
-       // Query query = new Query(Criteria.where("id").is(id));
-    	Query query = new Query(Criteria.where("name").is("Bob Smith"));
+       Query query = new Query(Criteria.where("id").is(id));
+    //Query query = new Query(Criteria.where("name").is("Alice Johnson"));
         Student student = mongoTemplate.findOne(query, Student.class);
         
-        boolean  studentExists =	 mongoTemplate.exists(query,  Student.class);
+       // boolean  studentExists =	 mongoTemplate.exists(query,  Student.class);
         
-        Student student2 = new Student(); 
+       // Student student2 = new Student(); 
         
-        student2.setId(123456L);
+      /*  student2.setId(123456L);
         
         	student2.setName("Kusu In Wonderland");
         	student2.setAge(22);
@@ -47,7 +47,7 @@ public class StudentRepositoryImpl implements StudentRepository//Custom
         		mongoTemplate.save(student2);
         		;
         		
-        
+        */
         if (student != null) {
             return student.getCourses();
         }
@@ -120,7 +120,19 @@ public class StudentRepositoryImpl implements StudentRepository//Custom
 	@Override
 	public Optional<Student> findById(Long id) {
 		// TODO Auto-generated method stub
-		return Optional.empty();
+		 
+		Query query = new Query(Criteria.where("id").is(id));
+		    		      
+		Student student = mongoTemplate.findOne(query, Student.class);
+		        
+		if (student != null) 
+		{
+     
+			return Optional.of(student);
+		       
+		}
+		
+		        return Optional.empty();
 	}
 
 	@Override

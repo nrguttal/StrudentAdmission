@@ -1,7 +1,10 @@
 package StudentAdmission.model;
 
+import org.springframework.data.annotation.Id;
+
 public class School {
-    private Long id;
+	@Id
+	private Long id;
     private String name;
     private String address;
 

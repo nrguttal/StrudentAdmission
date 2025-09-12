@@ -31,7 +31,7 @@ public class StudentController {
        // return studentService.getAllStudents();
     	return null;
     }
-/*
+
     @GetMapping("/{id}")
     public Optional getStudentById(@PathVariable Long id) {
         return studentService.getStudentById(id);
@@ -60,7 +60,7 @@ public class StudentController {
         return ResponseEntity.noContent().build();
     }
     
-    */
+    
     @GetMapping("/{id}/courses")
     public ResponseEntity<List<String>> getCoursesByStudentId(@PathVariable Long id) {
         List<String> courses = studentService.getCoursesByStudentId(id);

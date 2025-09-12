@@ -19,7 +19,7 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-    /*
+    
     public Optional getStudentById(Long id) {
         return ( studentRepository.findById(id));
     }
@@ -40,7 +40,7 @@ public class StudentService {
     public List<Student> getAllStudents() {
         return studentRepository.findAll();
     }
-    */
+    
 
     public List<String> getCoursesByStudentId(Long id) {
         return studentRepository.findCoursesByStudentId(id);
